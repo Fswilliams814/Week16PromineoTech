@@ -17,7 +17,7 @@ export default class ContactUs extends React.Component {
 
             {contactData.map(item =>{
                 return (
-                <NavLink key={item.id} to={item.link}>
+                <NavLink className="nav-link" key={item.id} to={item.link}>
                     {item.icon}
                     <span>{item.text}</span><br/>
                 </NavLink>)

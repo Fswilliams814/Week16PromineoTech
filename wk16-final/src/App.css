@@ -3,18 +3,8 @@
   display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+/* .App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -23,8 +13,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
+} */
+/* 
 .App-link {
   color: #61dafb;
 }
@@ -36,29 +26,27 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 #pic {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 300px;
 }
 
 body {
-  background-image: image();
+  background-image: url('https://img.freepik.com/premium-photo/3d-rendering-black-dumbbells-floor-dark-concept-fitness-room-with-training-equipments-back_67155-14961.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 250%;
   margin: 0;
   padding: 0;
+  color: aliceblue;
   }
 
   main {
     padding: 10px;
     }
 
-    #child1 {
-      display: inline-block flexbox;
-      border: 1px solid red;
-      padding: 1rem 1rem;
-      padding-top: 2rem;
-      vertical-align: middle;
-      height: 150px;
-      
-    }
+
+
+

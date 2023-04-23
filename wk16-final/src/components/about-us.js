@@ -20,11 +20,11 @@ export default class AboutUs extends React.Component {
 
     render(){
         return (
-            <Card style={{ width: '15rem' }}>
+            <Card className="bg-dark text-white mx-auto" >
         <ErrorBoundary fallback={<div>Something went wrong</div>}>
-        <Card.Header className="h1">{this.props.title}</Card.Header></ErrorBoundary>
+        <Card.Header className="display-4">{this.props.title}</Card.Header><br/></ErrorBoundary>
         <ErrorBoundary fallback={<div>Something went wrong</div>}><Card.Img id="pic" variant="top" src="./assets/Familyonbeach.jpeg" /></ErrorBoundary>
-        <Card.Body>
+        <Card.Body className="text-white">
           <div className="card-body">
             {this.props.summary}
             <br />

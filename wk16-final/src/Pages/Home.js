@@ -7,7 +7,7 @@ export default class Home extends React.Component {
     render(){
         return (
             <div className="container-fluid">
-                <h4 className="nav-bar">Home</h4>
+                <h4 className="nav-bar text-white">Home</h4>
                 <AboutInfo/>
 
             </div>

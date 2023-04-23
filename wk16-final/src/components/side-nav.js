@@ -28,6 +28,7 @@ return (
 )
 }
 
+//tried to use the classes to create NavBar at first but had to look it up and was only able to find help with function based component for the nav bar
 // export default class NavBar extends React.Component {
 //     constructor(props){
 //         super(props);
