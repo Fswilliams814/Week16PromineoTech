@@ -2,10 +2,12 @@ import React, {useState} from 'react'
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
+import { ErrorBoundary } from 'react-error-boundary';
+import App from '../App';
 
 
 //creating a form to edit customer
-export default function CustomerEditForm({customer, deleteCustomer, onSubmit }) {
+export default function CustomerEditForm({customer, deleteCustomer, updateCustomer }) {
   
     const [formData, setFormData] = useState(customer);
   //handle change event for the form data
@@ -22,24 +24,33 @@ export default function CustomerEditForm({customer, deleteCustomer, onSubmit }) 
   //creating the table that will display the customer information and buttons for edit and delete
   //The table is going to pull the form data from the new customer form
     return (
-      <tr>
+          
+    <tr id='updateForm'>
         <td>
-          <input type="text" name="customerName" value={formData.customerNameValue} onChange={handleChange} />
+          <input id="newCustomerName" type="text" name="customerName"  onChange={handleChange} />
         </td>
         <td>
-          <input type="text" name="customerTarget" value={formData.customerTargetValue} onChange={handleChange} />
+          <input id="newCustomerTarget"type="text" name="customerTarget"  onChange={handleChange} />
         </td>
         <td>
-          <input type="text" name="customerEmail" value={formData.customerEmailValue} onChange={handleChange} />
+          <input id="newCustomerEmail" type="text" name="customerEmail"  onChange={handleChange} />
         </td>
         <td>
+       
+        <ErrorBoundary fallback={<div>Something went wrong</div>}>
         <Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleDeleteClick}>
           Delete
-        </Button>
-        <Button variant="contained" sendIcon={<SendIcon />} onClick={ () => onSubmit(formData)}>
+        </Button></ErrorBoundary>
+        <ErrorBoundary fallback={<div>Something went wrong</div>}>
+        <Button variant="contained" sendIcon={<SendIcon />} onClick={ () => {
+            let newCustomerName = document.getElementById("newCustomerName");
+            let newCustomerEmail = document.getElementById("newCustomerEmail");
+            let newCustomerTarget = document.getElementById("newCustomerTarget"); 
+            updateCustomer(newCustomerName, newCustomerEmail, newCustomerTarget)}}>
           Submit
-        </Button>
+        </Button></ErrorBoundary>
         </td>
-      </tr>
+    </tr>
+      
     )
   }

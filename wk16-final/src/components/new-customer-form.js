@@ -18,17 +18,30 @@ const CreateCustomer = (props) => {
   const handleCustomerTargetChange = e => setCustomerTargetValue(e.target.value);
   const handleCustomerEmailChange = e => setCustomerEmailValue(e.target.value);
 
+  
+
   const handleCustomerSubmit = (e) => {
     e.preventDefault();
-    const createMedData = {
+    const createCustomerData = {
+      customerID: 0,
       customerName: customerNameValue,
      customerTarget: customerTargetValue,
       customerEmail: customerEmailValue
     }
-    props.createMed(createMedData);
+    const createNewCustomer = () => {
+      customerList.push(
+        props.createCustomerData)
+        
+    }
+    createNewCustomer(createCustomerData);
+        
     setCustomerNameValue(props.customerNameValue)
     setCustomerTargetValue(props.customerTargetValue)
     setCustomerEmailValue(props.customerEmailValue)
+    customerList.push(customerNameValue, customerTargetValue, customerEmailValue)
+    form.onsubmit();
+    form.reset();
+    return false;
   }
   // code was not clearing from input after submit because values were in Form.Label instead of Form.Control
   return (
@@ -41,17 +54,17 @@ const CreateCustomer = (props) => {
           <Form.Label>Enter Customer Name:</Form.Label><br/>
           <Form.Control style={{"width":"250px"}}value={customerNameValue} onChange={handleCustomerNameChange} placeholder="Customer Full Name" />
         </Form.Group>
-        <Form.Group controlId="customerTargetArea">
+        <Form.Group controlId="customerTarget">
           <Form.Label>Enter Target Area:</Form.Label><br/>
-          <Form.Control style={{"width":"250px"}}value={customerTargetValue} onChange={handleCustomerTargetChange} placeholder="What are they looking to improve?" />
+          <Form.Control  style={{"width":"250px"}}value={customerTargetValue} onChange={handleCustomerTargetChange} placeholder="What are they looking to improve?" />
         </Form.Group>
         <Form.Group controlId="customerEmail">
           <Form.Label>Enter Email:</Form.Label><br/>
           <Form.Control style={{"width":"250px"}}value={customerEmailValue} onChange={handleCustomerEmailChange} placeholder="Enter Email for contact" />
         </Form.Group>
         {/* TODO: need to navigate after the form is submitted, button needs to be outside Link using history */}
-        <Link to={`/list`}><br/>
-        <Button onClick={handleCustomerSubmit} variant="contained" >Submit Info</Button>
+        <Link to={`/viewcustomers`}><br/>
+        <Button id="newCustomerButton" onClick={handleCustomerSubmit} variant="contained" >Submit Info</Button>
         </Link>
       </Form>
       </div>

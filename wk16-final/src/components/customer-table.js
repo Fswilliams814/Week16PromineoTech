@@ -4,36 +4,45 @@ import Table from 'react-bootstrap/Table';
 import CustomerView from './customer-view';
 import CreateCustomer from './new-customer-form';
 import customerList from '../data';
+import App from '../App';
+import { Card } from 'react-bootstrap';
+import { TableHead } from '@mui/material';
 
 
 
-// props received from CreateMeds
+
+// props received from new customer form
 const CustomerTable = (props) => {
     
  return (
-   <Table className="table table-hover" striped bordered hover>
-    <thead>
-      <tr>
+    <div><br/>
+   <Card className="table table-hover" striped bordered hover>
+    <Card.Title>Customers</Card.Title><br/>
+    <Card.Body>
+        <TableHead>
+        
         <th>Name</th>
         <th>Target</th>
         <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td> {customerList}</td>
+      
+        </TableHead>
+        <tr>
+      <td> Fionna Williams</td>
       <td>Whole Body</td>
       <td>fswilliams814@gmail.com</td>
       </tr>
-       
-      {props.customers.map(customer => {
+      {/* <tr>{customerList.map(customer => {
           return (
             <CustomerView customer={customer} updateCustomer={props.updateCustomer} deleteCustomer={props.deleteCustomer} />
           )
         })
-      }
-    </tbody>
-  </Table>
+      }</tr> */}
+    </Card.Body>
+    </Card>  
+   
+      
+    
+    </div>
  )
 }
 
