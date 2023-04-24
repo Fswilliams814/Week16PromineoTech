@@ -44,11 +44,12 @@ function App() {
   
   //this is the actual function that will add new customer upon submit of button
  const addCustomer = () => {
-    customers.push(new NewCustomer(this.customerName, this.customerTarget, this.customerEmail))
-    customerList.push(NewCustomer)
-    form.onsubmit();
-    form.reset();
-    return false;
+  let customer = new NewCustomer(this.customerName, this.customerEmail, this.customerTarget)
+  customerList.push(NewCustomer(customer))
+
+    // customers.push([NewCustomer(this.customerName, this.customerTarget, this.customerEmail)])
+    // customerList.push({NewCustomer})
+    
 
   }
   console.log(customers)

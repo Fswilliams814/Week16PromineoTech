@@ -24,24 +24,10 @@ const CreateCustomer = (props, addCustomer) => {
 
   const handleCustomerSubmit = (e) => {
     e.preventDefault();
-    const createCustomerData = {
-      customerID: 0,
-      customerName: customerNameValue,
-     customerTarget: customerTargetValue,
-      customerEmail: customerEmailValue
-    }
-    const createNewCustomer = () => {
-      customerList.push(
-        props.createCustomerData)
-        
-    }
-    createNewCustomer(createCustomerData);
-        
     setCustomerNameValue(props.customerNameValue)
     setCustomerTargetValue(props.customerTargetValue)
     setCustomerEmailValue(props.customerEmailValue)
     customerList.push(customerNameValue, customerTargetValue, customerEmailValue)
-    form.onsubmit();
     form.reset();
     return false;
   }
@@ -66,7 +52,7 @@ const CreateCustomer = (props, addCustomer) => {
         </Form.Group>
         {/* TODO: need to navigate after the form is submitted, button needs to be outside Link using history */}
         <Link to={`/viewcustomers`}><br/>
-        <Button id="newCustomerButton" onClick={addCustomer} variant="contained" >Submit Info</Button>
+        <Button id="newCustomerButton" onClick={handleCustomerSubmit} variant="contained" >Submit Info</Button>
         </Link>
       </Form>
       </div>
