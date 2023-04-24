@@ -37,15 +37,16 @@ const CustomerView = ({customer, updateCustomer, deleteCustomer}) => {
     <table>
       <tbody>
       <tr>
-        <th>Customer Name</th>
-        <th>Customer Target</th>
-        <th>Customer Email</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Target</th>
+        <th>Email</th>
       </tr>
     <tr>
-      <td>{customerID}</td>
-      <td>{customerName}</td>
-      <td>{customerTarget}</td>
-      <td>{customerEmail}</td>
+      <td>{customerList[0].customerID}</td>
+      <td>{customerList[0].customerName}</td>
+      <td>{customerList[0].customerTarget}</td>
+      <td>{customerList[0].customerEmail}</td>
       <td>
       <Button variant="outlined" startIcon={<DeleteIcon />} onClick={handleDeleteClick}>
         Delete

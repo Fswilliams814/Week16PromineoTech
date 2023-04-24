@@ -25,7 +25,9 @@ function App() {
   const [customers, setCustomers] = useState(customerList);
 
   // add new/created med to array with push
-  let createNewCustomer = customer => {
+  const createNewCustomer = (customer) => {
+    let customers = []
+
       customer._id = customers.length;
       const arr = [...customers];
       arr.push(customer);
@@ -33,7 +35,7 @@ function App() {
   };
 
   // rework, this is making a copy
-  const updateCustomer = customer => {
+  const updateCustomer = (customer) => {
     const arr = [...customers];
     arr[customer._id] = customer;
     setCustomers(arr);

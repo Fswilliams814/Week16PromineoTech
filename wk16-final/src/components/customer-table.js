@@ -2,6 +2,8 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import CustomerView from './customer-view';
+import CreateCustomer from './new-customer-form';
+import customerList from '../data';
 
 
 
@@ -12,12 +14,18 @@ const CustomerTable = (props) => {
    <Table className="table table-hover" striped bordered hover>
     <thead>
       <tr>
-        <th>Customer Name</th>
-        <th>Target Area</th>
-        <th>Customer Email</th>
+        <th>Name</th>
+        <th>Target</th>
+        <th>Email</th>
       </tr>
     </thead>
     <tbody>
+    <tr>
+      <td> {customerList}</td>
+      <td>Whole Body</td>
+      <td>fswilliams814@gmail.com</td>
+      </tr>
+       
       {props.customers.map(customer => {
           return (
             <CustomerView customer={customer} updateCustomer={props.updateCustomer} deleteCustomer={props.deleteCustomer} />
