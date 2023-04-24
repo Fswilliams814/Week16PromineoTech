@@ -44,7 +44,7 @@ function App() {
   
   //this is the actual function that will add new customer upon submit of button
  const addCustomer = () => {
-    customers.push(new NewCustomer(customerNameInput.value, customerTargetInput.value, customerEmailInput.value))
+    customers.push(new NewCustomer(this.customerName, this.customerTarget, this.customerEmail))
     customerList.push(NewCustomer)
     form.onsubmit();
     form.reset();
@@ -54,10 +54,7 @@ function App() {
   console.log(customers)
   
   //Adding event listeners to the add customer button
-  let newCustomerButton = document.getElementById("newCustomerButton")
-  React.useEffect(() => {
-    window.newCustomerButton.addEventListener("click", () => addCustomer(customerNameInput.value, customerTargetInput.value, customerEmailInput.value));
-  })
+ 
 
 
   console.log(customerList) //checking to see if new customer was added to the list

@@ -9,7 +9,7 @@ import { sizeHeight } from '@mui/system';
 import customerList from '../data';
 const form = document.getElementById('form')
 
-const CreateCustomer = (props) => {
+const CreateCustomer = (props, addCustomer) => {
   const [customerNameValue, setCustomerNameValue] = useState("");
   const [customerTargetValue, setCustomerTargetValue] = useState("");
   const [customerEmailValue, setCustomerEmailValue] = useState("");
@@ -17,6 +17,8 @@ const CreateCustomer = (props) => {
   const handleCustomerNameChange = e => setCustomerNameValue(e.target.value);
   const handleCustomerTargetChange = e => setCustomerTargetValue(e.target.value);
   const handleCustomerEmailChange = e => setCustomerEmailValue(e.target.value);
+
+  
 
   
 
@@ -64,7 +66,7 @@ const CreateCustomer = (props) => {
         </Form.Group>
         {/* TODO: need to navigate after the form is submitted, button needs to be outside Link using history */}
         <Link to={`/viewcustomers`}><br/>
-        <Button id="newCustomerButton" onClick={handleCustomerSubmit} variant="contained" >Submit Info</Button>
+        <Button id="newCustomerButton" onClick={addCustomer} variant="contained" >Submit Info</Button>
         </Link>
       </Form>
       </div>
