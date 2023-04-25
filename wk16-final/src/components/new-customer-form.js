@@ -29,23 +29,18 @@ const CreateCustomer = (props) => {
   
   
 
-  const addCustomer = (e) => {
-    e.preventDefault();
-   
-   
+  const addCustomer = () => {
     
-    
-  
-  
-   
+    setCustomerId(customerList.findIndex(obj => obj.customerNameValue == customerNameValue))
+    console.log(id)
+  }
 
-    console.log(myTable)
 
 //     // customers.push([NewCustomer(this.customerName, this.customerTarget, this.customerEmail)])
 //     // customerList.push({NewCustomer})
     
 
- }
+ 
 
 
 
@@ -54,22 +49,20 @@ const CreateCustomer = (props) => {
 
   const handleCustomerSubmit = (e) => {
     e.preventDefault();
-    setCustomerNameValue("")
-    setCustomerTargetValue("")
-    setCustomerEmailValue("")
     customerList.push({...{id, customerNameValue, customerTargetValue, customerEmailValue}});
-    if (customerNameValue === ""){
-      addCustomer();
-      let customerIndex = customerList.indexOf(e.target.value)
-      setCustomerId(id, customerIndex);
-      console.log(customerIndex)
+    addCustomer(e.target.value);
+      
+      setCustomerNameValue("")
+      setCustomerTargetValue("")
+      setCustomerEmailValue("")
+      return false;
       
 
 
     }
    
-    return false;
-  }
+    
+  
 
   console.log(customerList)
   // code was not clearing from input after submit because values were in Form.Label instead of Form.Control
