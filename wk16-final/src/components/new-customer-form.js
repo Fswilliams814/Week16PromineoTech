@@ -5,20 +5,49 @@ import Form from 'react-bootstrap/Form';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import App from '../App';
-
+import CustomerTable from './customer-table';
 import { sizeHeight } from '@mui/system';
 import customerList from '../data';
 const form = document.getElementById('form')
 
 const CreateCustomer = (props) => {
-  const [customerNameValue, setCustomerNameValue] = useState("");
-  const [customerTargetValue, setCustomerTargetValue] = useState("");
-  const [customerEmailValue, setCustomerEmailValue] = useState("");
-  const [addCustomer] = useState(props)
+  const [id, setCustomerId] = useState()
+  const [customerNameValue, setCustomerNameValue, setCell1] = useState("");
+  const [customerTargetValue, setCustomerTargetValue, setCell2] = useState("");
+  const [customerEmailValue, setCustomerEmailValue, setCell3] = useState("");
+  const [myTable, setMyTable] = useState("");
+ 
+  
   
   const handleCustomerNameChange = e => setCustomerNameValue(e.target.value);
   const handleCustomerTargetChange = e => setCustomerTargetValue(e.target.value);
   const handleCustomerEmailChange = e => setCustomerEmailValue(e.target.value);
+
+
+  console.log(myTable);
+
+  
+  
+
+  const addCustomer = (e) => {
+    e.preventDefault();
+   
+   
+    
+    
+  
+  
+   
+
+    console.log(myTable)
+
+//     // customers.push([NewCustomer(this.customerName, this.customerTarget, this.customerEmail)])
+//     // customerList.push({NewCustomer})
+    
+
+ }
+
+
 
 
   
@@ -28,11 +57,17 @@ const CreateCustomer = (props) => {
     setCustomerNameValue("")
     setCustomerTargetValue("")
     setCustomerEmailValue("")
-    customerList.push({...{customerNameValue, customerTargetValue, customerEmailValue}});
+    customerList.push({...{id, customerNameValue, customerTargetValue, customerEmailValue}});
     if (customerNameValue === ""){
-      addCustomer(customerNameValue, customerTargetValue, customerEmailValue);
+      addCustomer();
+      let customerIndex = customerList.indexOf(e.target.value)
+      setCustomerId(id, customerIndex);
+      console.log(customerIndex)
+      
+
+
     }
-    
+   
     return false;
   }
 
