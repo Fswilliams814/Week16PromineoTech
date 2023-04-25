@@ -26,8 +26,10 @@ import CustomerEditForm from './components/customer-edit-form';
 function App() {
   //creating a class to create a new customer
   
-  const [customerNameValue, customerTargetValue, customerEmailValue] = useState("")
- 
+  const [newCustomerName, setNewCustomerName] = useState("")
+  const [newCustomerTarget, setNewCustomerTarget] = useState("")
+  const [newCustomerEmail, setNewCustomerEmail] = useState("")
+  
  
   //creating an array to push the new customers to 
   let customers = [{}]
@@ -70,29 +72,32 @@ function App() {
   //creating the function to delete the customer
   const deleteCustomer = () => {
     let index = customerList.indexOf(customerList.customerNameValue);
+    console.log(index)
     customerList.splice(index)
+    setNewCustomerName("")
+    setNewCustomerTarget("")
+    setNewCustomerEmail("")
+
   }
 
   //assigning variables to the input fields of the customer edit form
-  let newCustomerName = document.getElementById("newCustomerName");
-  let newCustomerTarget = document.getElementById("newCustomerTarget")
-  let newCustomerEmail = document.getElementById("newCustomerEmail")
+
   let updateForm = document.getElementById("updateForm")
 
   const updateCustomer = () => {
-    let customerNewName = newCustomerName.value
-    let customerNewTarget = newCustomerTarget.value
-    let customerNewEmail = newCustomerEmail.value
+
+   
     let index2 = customerList.findIndex(c => c.name === customerList.customerNameValue);
     console.log(index2);
     if(index2 !== -1){
-      customerList.push(customerNewName, customerNewTarget, customerNewEmail)
+      customerList.push(newCustomerName, newCustomerTarget, newCustomerEmail)
     } else if (index2 === -1 ){
       alert("Sorry! This does not match any customers")
     }
     customerList.splice(index2, 1)
-    updateForm.onsubmit()
-    updateForm.reset()
+    setNewCustomerName("")
+    setNewCustomerTarget("")
+    setNewCustomerEmail("")
     return false;
   }
 
