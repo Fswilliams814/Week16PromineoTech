@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
+
 import { ErrorBoundary } from 'react-error-boundary';
 import App from '../App';
+import { Send } from '@mui/icons-material';
 
 
 //creating a form to edit customer
@@ -42,12 +43,12 @@ export default function CustomerEditForm({customer, deleteCustomer, updateCustom
           Delete
         </Button></ErrorBoundary>
         <ErrorBoundary fallback={<div>Something went wrong</div>}>
-        <Button variant="contained" sendIcon={<SendIcon />} onClick={ () => {
+        <Button variant="contained" sendIcon={<Send />} onClick={ () => {
             let newCustomerName = document.getElementById("newCustomerName");
             let newCustomerEmail = document.getElementById("newCustomerEmail");
             let newCustomerTarget = document.getElementById("newCustomerTarget"); 
             updateCustomer(newCustomerName, newCustomerEmail, newCustomerTarget)}}>
-          Submit
+          UPDATE
         </Button></ErrorBoundary>
         </td>
     </tr>

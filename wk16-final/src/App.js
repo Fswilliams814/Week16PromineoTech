@@ -25,33 +25,40 @@ import CustomerEditForm from './components/customer-edit-form';
 
 function App() {
   //creating a class to create a new customer
-  class NewCustomer {
-    constructor(index, customerName, customerEmail, customerTarget){
-      this.index = index
-      this.customerName = customerName
-      this.customerEmail = customerEmail
-      this.customerTarget = customerTarget
-    }
-  }
+  
+  const [customerNameValue, customerTargetValue, customerEmailValue] = useState("")
+ 
+ 
   //creating an array to push the new customers to 
-  let customers = []
+  let customers = [{}]
 
   //assigning variables to different parts of the form that I want to manipulate
-  let customerNameInput = document.getElementById("customerName")
+  let myTable = document.getElementById('myTable')
+  console.log(myTable);
   let customerTargetInput = document.getElementById("customerTarget")
   let customerEmailInput = document.getElementById("customerEmail")
   let form = document.getElementById("form")
   
   //this is the actual function that will add new customer upon submit of button
- const addCustomer = () => {
-  let customer = new NewCustomer(this.customerName, this.customerEmail, this.customerTarget)
-  customerList.push(NewCustomer(customer))
+  const addCustomer = async () => {
+    let newRow = myTable.insertRow(1);
+    let cell1= newRow.insertCell(0)
+    let cell2= newRow.insertCell(1)
+    let cell3= newRow.insertCell(2)
+    let customerNameValue = CreateCustomer.customerEmailValue
+    let customerTargetValue = CreateCustomer.customerTargetValue
+    let customerEmailValue = CreateCustomer.customerEmailValue
+    cell1.innerHTML = customerNameValue
+    cell2.innerHTML = customerTargetValue
+    cell3.innerHTML = customerEmailValue
+    console.log(myTable)
 
-    // customers.push([NewCustomer(this.customerName, this.customerTarget, this.customerEmail)])
-    // customerList.push({NewCustomer})
+//     // customers.push([NewCustomer(this.customerName, this.customerTarget, this.customerEmail)])
+//     // customerList.push({NewCustomer})
     
 
-  }
+ }
+ 
   console.log(customers)
   
   //Adding event listeners to the add customer button
@@ -62,7 +69,7 @@ function App() {
 
   //creating the function to delete the customer
   const deleteCustomer = () => {
-    let index = customerList.indexOf(NewCustomer);
+    let index = customerList.indexOf(customerList.customerNameValue);
     customerList.splice(index)
   }
 
@@ -76,10 +83,10 @@ function App() {
     let customerNewName = newCustomerName.value
     let customerNewTarget = newCustomerTarget.value
     let customerNewEmail = newCustomerEmail.value
-    let index2 = customerList.findIndex(c => c.name === customerList.customerName);
+    let index2 = customerList.findIndex(c => c.name === customerList.customerNameValue);
     console.log(index2);
     if(index2 !== -1){
-      customerList.push(new NewCustomer(customerNewName, customerNewTarget, customerNewEmail))
+      customerList.push(customerNewName, customerNewTarget, customerNewEmail)
     } else if (index2 === -1 ){
       alert("Sorry! This does not match any customers")
     }

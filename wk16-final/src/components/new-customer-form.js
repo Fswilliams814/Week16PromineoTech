@@ -4,33 +4,39 @@ import {Link} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import App from '../App';
 
 import { sizeHeight } from '@mui/system';
 import customerList from '../data';
 const form = document.getElementById('form')
 
-const CreateCustomer = (props, addCustomer) => {
+const CreateCustomer = (props) => {
   const [customerNameValue, setCustomerNameValue] = useState("");
   const [customerTargetValue, setCustomerTargetValue] = useState("");
   const [customerEmailValue, setCustomerEmailValue] = useState("");
+  const [addCustomer] = useState(props)
   
   const handleCustomerNameChange = e => setCustomerNameValue(e.target.value);
   const handleCustomerTargetChange = e => setCustomerTargetValue(e.target.value);
   const handleCustomerEmailChange = e => setCustomerEmailValue(e.target.value);
 
-  
 
   
 
   const handleCustomerSubmit = (e) => {
     e.preventDefault();
-    setCustomerNameValue(props.customerNameValue)
-    setCustomerTargetValue(props.customerTargetValue)
-    setCustomerEmailValue(props.customerEmailValue)
-    customerList.push(customerNameValue, customerTargetValue, customerEmailValue)
-    form.reset();
+    setCustomerNameValue("")
+    setCustomerTargetValue("")
+    setCustomerEmailValue("")
+    customerList.push({...{customerNameValue, customerTargetValue, customerEmailValue}});
+    if (customerNameValue === ""){
+      addCustomer(customerNameValue, customerTargetValue, customerEmailValue);
+    }
+    
     return false;
   }
+
+  console.log(customerList)
   // code was not clearing from input after submit because values were in Form.Label instead of Form.Control
   return (
     <div>
@@ -38,7 +44,7 @@ const CreateCustomer = (props, addCustomer) => {
       <div>
       <div >
       <Form className='mx-auto' id='form'>
-        <Form.Group  controlId="customerName" id='form'>
+        <Form.Group  controlId="customerName" >
           <Form.Label>Enter Customer Name:</Form.Label><br/>
           <Form.Control style={{"width":"250px"}}value={customerNameValue} onChange={handleCustomerNameChange} placeholder="Customer Full Name" />
         </Form.Group>

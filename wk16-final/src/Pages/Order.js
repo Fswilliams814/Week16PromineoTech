@@ -9,7 +9,7 @@ export default class Order extends React.Component {
         return (
             <div>
                 <h1>Add New Customer</h1>
-           <div> <CreateCustomer/></div>
+           <div> <CreateCustomer/></div><br/>
            <div> <CustomerView/> </div>
             </div>
             )
