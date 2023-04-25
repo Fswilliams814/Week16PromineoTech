@@ -43,6 +43,7 @@ export default class CustomerView extends React.Component {
 
    
     return(
+      <div>
       <Card className="bg-dark text-white mx-auto" >
         <ErrorBoundary fallback={<div>Something went wrong</div>}>
         <Card.Body className="text-white">
@@ -60,6 +61,7 @@ export default class CustomerView extends React.Component {
           <ErrorBoundary fallback={<div>Something went wrong</div>}> <CustomerEditForm/>    </ErrorBoundary>
         </Card.Footer></div>
       </Card>
+      </div>
     )
     }
   }

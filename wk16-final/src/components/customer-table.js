@@ -25,7 +25,7 @@ export default function CustomerTable() {
             <TableCell align="right">Email</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody id="myTable">
           {customerList.map((row) => (
             <TableRow
               key={row.customerName}
